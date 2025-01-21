@@ -1,0 +1,12 @@
+@use '../../styles/variables';
+
+.todo-item {
+    width: 100%;
+    min-height: 40px;
+    background-color: variables.$white;
+    border-radius: variables.$radius-10;
+
+    &__inner {
+        padding-inline: 15px;
+    }
+}

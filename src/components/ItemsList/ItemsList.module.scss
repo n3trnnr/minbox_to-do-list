@@ -1,0 +1,15 @@
+@use '../../styles/variables';
+
+.items-list {
+    width: 500px;
+    min-height: 500px;
+    border-radius: variables.$radius-10;
+    background-color: variables.$grey;
+
+    &__inner {
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        row-gap: 15px;
+    }
+}
