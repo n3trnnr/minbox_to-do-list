@@ -3,7 +3,8 @@
 .todo-item {
     width: 100%;
     min-height: 40px;
-    background-color: variables.$white;
+    // background-color: variables.$white;
+    border: 1px solid variables.$grey-1;
     border-radius: variables.$radius-10;
 
     &__inner {

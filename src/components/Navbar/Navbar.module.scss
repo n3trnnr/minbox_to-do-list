@@ -1,0 +1,73 @@
+@use '../../styles/variables';
+@import '../../styles/mixins';
+
+@keyframes line {
+    from {
+        width: 0;
+    }
+
+    to {
+        width: 100%;
+    }
+}
+
+.nav {
+    width: 100%;
+    border-radius: variables.$radius-10;
+    @extend %flex-between;
+    background-color: variables.$grey;
+    color: variables.$grey-2;
+
+    .nav-list {
+        @extend %flex-between;
+        column-gap: 10px;
+
+        .nav-item {
+            @extend %flex-center;
+            position: relative;
+            min-height: 40px;
+            line-height: 40px;
+            padding-inline: 10px;
+
+            .line {
+                position: absolute;
+                bottom: 0px;
+                height: 2px;
+                width: 0;
+                background: transparent;
+            }
+        }
+
+        .nav-item__active {
+            color: variables.$grey-3;
+
+            .line {
+                background: variables.$grey-2;
+                animation: line 600ms cubic-bezier(0.075, 0.82, 0.165, 1) forwards;
+            }
+        }
+    }
+
+    .btn-delete {
+        height: 40px;
+        padding-inline: 10px;
+        border-radius: variables.$radius-10;
+        background: transparent;
+        border: 1px solid variables.$grey-1;
+        font-size: 16px;
+        color: variables.$grey-2;
+        cursor: pointer;
+
+        &:hover {
+            background: variables.$grey-2;
+            color: variables.$white;
+            border-color: transparent;
+            @include transition(background-color, 200ms);
+        }
+
+        &:active {
+            transform: translateY(3px);
+            @include transition(transform, 100ms);
+        }
+    }
+}
