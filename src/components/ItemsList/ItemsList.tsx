@@ -1,13 +1,19 @@
 import TodoItem from '../TodoItem/TodoItem';
+import { IItemsListProps } from './IItemsList.props';
 import styles from './ItemsList.module.scss';
 
-const ItemsList = () => {
+const ItemsList = ({ todos }: IItemsListProps) => {
     return (
         <section className={styles['items-list']}>
             <div className={styles['items-list__inner']}>
-                <TodoItem />
-                <TodoItem />
-                <TodoItem />
+                {todos && todos.map((todo) => (
+                    <TodoItem
+                        key={todo.id}
+                        id={todo.id}
+                        text={todo.text}
+                        isCompleted={todo.isCompleted}
+                    />
+                ))}
             </div>
         </section>
     );
