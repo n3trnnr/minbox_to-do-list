@@ -1,5 +1,5 @@
 @use '../../styles/variables';
-@import '../../styles/mixins';
+@use '../../styles/mixins';
 
 @keyframes checked {
     from {
@@ -62,7 +62,7 @@
 
         .btn-delete {
             &:hover>:first-child>path {
-                @include transition(fill, 200ms);
+                @include mixins.transition(fill, 200ms);
                 fill: variables.$grey-3;
             }
         }
@@ -72,6 +72,6 @@
         box-shadow: 0 4px 16px 2px rgba(0, 26, 52, .16);
         transform: translateY(-2px);
         border-color: transparent;
-        @include transition(all, 200ms);
+        @include mixins.transition(all, 200ms);
     }
 }

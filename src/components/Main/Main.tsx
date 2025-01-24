@@ -40,13 +40,10 @@ const Main = () => {
         }
     }
 
-    const handleUpdateTodo = ({ id, text, isCompleted }: { id: TId, text?: string, isCompleted?: boolean }) => {
-        console.log(id, text, isCompleted);
-
+    const handleUpdateTodo = ({ id, isCompleted }: { id: TId, isCompleted?: boolean }) => {
         dispatch({
             type: 'UPDATE', payload: {
                 id: id,
-                text: text,
                 isCompleted: isCompleted
             }
         })
@@ -56,9 +53,14 @@ const Main = () => {
         reset()
     }
 
-    const onSubmit: SubmitHandler<IForm> = (data) => {
-        console.log(data);
+    const count = state.todos.reduce((acc, item) => {
+        if (!item.isCompleted) {
+            acc++
+        }
+        return acc
+    }, 0)
 
+    const onSubmit: SubmitHandler<IForm> = (data) => {
         dispatch({
             type: 'POST', payload: {
                 text: data.text
@@ -73,7 +75,7 @@ const Main = () => {
                 <Input control={control} name={'text'} resetForm={resetForm} />
             </form>
             <Outlet context={{ todos: state.todos, handleDeleteTodo, handleUpdateTodo }} />
-            <Navbar todos={state.todos} handleClearComleted={handleClearComleted} />
+            <Navbar count={count} handleClearComleted={handleClearComleted} />
         </main>
     );
 }

@@ -4,14 +4,7 @@ import { NavLink } from 'react-router-dom';
 import { INavbarProps } from './INavbar.props';
 import Button from '../UI/Button/Button';
 
-const Navbar = ({ todos, handleClearComleted }: INavbarProps) => {
-
-    const count = todos.reduce((acc, item) => {
-        if (!item.isCompleted) {
-            acc++
-        }
-        return acc
-    }, 0)
+const Navbar = ({ count, handleClearComleted }: INavbarProps) => {
 
     return (
         <nav className={styles['nav']}>

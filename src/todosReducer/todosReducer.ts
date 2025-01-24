@@ -55,7 +55,6 @@ export const todosReducer = (state: IInitialState, action: IAction): IInitialSta
                         return {
                             ...todo,
                             isCompleted: action.payload?.isCompleted ?? todo.isCompleted,
-                            text: action.payload?.text ?? todo.text
                         }
                     }
                     return todo

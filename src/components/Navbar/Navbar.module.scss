@@ -1,5 +1,5 @@
 @use '../../styles/variables';
-@import '../../styles/mixins';
+@use '../../styles/mixins';
 
 @keyframes line {
     from {
@@ -39,7 +39,7 @@
 
             &:hover {
                 color: variables.$grey-3;
-                @include transition(color, 200ms)
+                @include mixins.transition(color, 200ms)
             }
         }
 
@@ -67,12 +67,12 @@
             background: variables.$grey-2;
             color: variables.$white;
             border-color: transparent;
-            @include transition(background-color, 200ms);
+            @include mixins.transition(background-color, 200ms);
         }
 
         &:active {
             transform: translateY(3px);
-            @include transition(transform, 100ms);
+            @include mixins.transition(transform, 100ms);
         }
     }
 }

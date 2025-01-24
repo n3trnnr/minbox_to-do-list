@@ -1,5 +1,5 @@
 @use '../../../styles/variables';
-@import '../../../styles/mixins';
+@use '../../../styles/mixins';
 
 .label {
     position: relative;
@@ -32,18 +32,12 @@
         visibility: hidden;
 
         &:hover>:first-child>path {
-            @include transition(fill, 200ms);
+            @include mixins.transition(fill, 200ms);
             fill: variables.$grey-3;
         }
 
         &:focus {
             outline: none;
         }
-    }
-
-    .error-message {
-        margin: 5px 0 0 15px;
-        font-size: 14px;
-        color: red;
     }
 }
