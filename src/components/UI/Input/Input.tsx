@@ -1,7 +1,7 @@
 import { IInputProps } from "./IInput.props";
 import styles from './Input.module.scss'
 import Close from '../../../assets/close.svg?react';
-import Button from "../Button";
+import Button from "../Button/Button";
 
 const Input = ({ ...props }: IInputProps) => {
     return (

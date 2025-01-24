@@ -1,15 +1,20 @@
 @use '../../styles/variables';
 
 .items-list {
+    position: relative;
     display: flex;
     flex-direction: column;
     flex-grow: 1;
     width: 100%;
-    min-height: 100px;
+    background: variables.$white;
     border-radius: variables.$radius-10;
-    border: 1px solid variables.$grey-1;
+    overflow-y: auto;
+    overflow-x: hidden;
 
     &__inner {
+        position: absolute;
+        width: 100%;
+        min-height: 100%;
         padding: 20px;
         display: flex;
         flex-direction: column;

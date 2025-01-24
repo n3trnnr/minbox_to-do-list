@@ -1,4 +1,4 @@
-@use '../../styles/variables';
+@use '../../../styles/variables';
 
 .button {
     border: none;
@@ -9,7 +9,7 @@
     font-family: 'inter', sans-serif;
 
     &:focus-visible {
-        outline: 2px solid variables.$grey-2;
+        outline: 2px solid variables.$grey-3;
         outline-offset: 2px;
     }
 }

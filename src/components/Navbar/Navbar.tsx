@@ -2,8 +2,8 @@ import styles from './Navbar.module.scss';
 import cn from 'classnames'
 import { NavLink } from 'react-router-dom';
 import { INavbarProps } from './INavbar.props';
-import Button from '../UI/Button';
-import { useTodosContext } from '../../hoc/TodosContext';
+import Button from '../UI/Button/Button';
+import { useTodosContext } from '../../Context/TodosContext';
 
 const Navbar = ({ count }: INavbarProps) => {
 

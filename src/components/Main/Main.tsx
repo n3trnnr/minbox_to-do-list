@@ -2,7 +2,7 @@ import Input from "../UI/Input/Input";
 import styles from './Main.module.scss'
 import Navbar from "../Navbar/Navbar";
 import Todos from "../Todos/Todos";
-import { useTodosContext } from "../../hoc/TodosContext";
+import { useTodosContext } from "../../Context/TodosContext";
 
 const Main = () => {
     const { todos } = useTodosContext();

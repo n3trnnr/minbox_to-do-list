@@ -5,7 +5,7 @@ import { IContextProviderProps } from "./IContextProvider.props";
 const initial: ITodo[] = [
     {
         id: 1,
-        text: 'todo 1',
+        text: 'lorem loremloremloremloremloremloremloremloremlorem',
         isCompleted: false
     },
     {
@@ -15,6 +15,46 @@ const initial: ITodo[] = [
     },
     {
         id: 3,
+        text: 'todo 3',
+        isCompleted: false
+    },
+    {
+        id: 4,
+        text: 'todo 3',
+        isCompleted: false
+    },
+    {
+        id: 5,
+        text: 'todo 3',
+        isCompleted: false
+    },
+    {
+        id: 6,
+        text: 'todo 3',
+        isCompleted: false
+    },
+    {
+        id: 7,
+        text: 'todo 3',
+        isCompleted: false
+    },
+    {
+        id: 8,
+        text: 'todo 3',
+        isCompleted: false
+    },
+    {
+        id: 9,
+        text: 'todo 3',
+        isCompleted: false
+    },
+    {
+        id: 10,
+        text: 'todo 3',
+        isCompleted: false
+    },
+    {
+        id: 11,
         text: 'todo 3',
         isCompleted: false
     },
