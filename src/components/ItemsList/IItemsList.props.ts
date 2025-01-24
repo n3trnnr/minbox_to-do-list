@@ -1,5 +1,5 @@
-import { ITodo } from "../Main/Main";
+import { IOutletContext } from "../../interfaces/IOutletContext";
 
-export interface IItemsListProps {
-    todos: ITodo[];
+export interface IItemsListProps extends IOutletContext {
+
 }

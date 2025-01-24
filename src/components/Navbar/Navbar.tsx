@@ -3,11 +3,15 @@ import cn from 'classnames'
 import { NavLink } from 'react-router-dom';
 import { INavbarProps } from './INavbar.props';
 import Button from '../UI/Button/Button';
-import { useTodosContext } from '../../Context/TodosContext';
 
-const Navbar = ({ count }: INavbarProps) => {
+const Navbar = ({ todos, handleClearComleted }: INavbarProps) => {
 
-    const { clearCompleted } = useTodosContext()
+    const count = todos.reduce((acc, item) => {
+        if (!item.isCompleted) {
+            acc++
+        }
+        return acc
+    }, 0)
 
     return (
         <nav className={styles['nav']}>
@@ -40,7 +44,7 @@ const Navbar = ({ count }: INavbarProps) => {
             </ul>
             <Button
                 className={styles['btn-delete']}
-                onClick={clearCompleted}
+                onClick={handleClearComleted}
             >
                 Clear completed
             </Button>

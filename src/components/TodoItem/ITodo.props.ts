@@ -1,7 +1,8 @@
-import { TId } from "../Main/Main";
+import { TId } from "../../interfaces/global";
 
 export interface ITodoProps {
     id: TId,
     text: string,
-    isComopleted: boolean
+    isCompleted: boolean,
+    handleDeleteTodo: (id: TId) => void
 }

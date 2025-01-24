@@ -1,3 +1,6 @@
+import { ITodo } from "../../interfaces/global";
+
 export interface INavbarProps {
-    count: number,
+    todos: ITodo[],
+    handleClearComleted: () => void
 }

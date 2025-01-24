@@ -36,6 +36,11 @@
                 width: 0;
                 background: transparent;
             }
+
+            &:hover {
+                color: variables.$grey-3;
+                @include transition(color, 200ms)
+            }
         }
 
         .nav-item__active {

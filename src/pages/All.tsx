@@ -1,14 +1,16 @@
 import { useOutletContext } from "react-router-dom";
 import ItemsList from "../components/ItemsList/ItemsList";
 import { ITodo } from "../interfaces/global";
+import { IOutletContext } from "../interfaces/IOutletContext";
+
 
 const All = () => {
 
-    const todos = useOutletContext<ITodo[]>()
+    const { todos, handleDeleteTodo } = useOutletContext<IOutletContext>()
 
     return (
         <>
-            <ItemsList todos={todos} />
+            <ItemsList todos={todos} handleDeleteTodo={handleDeleteTodo} />
         </>
     );
 }
