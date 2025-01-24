@@ -2,7 +2,7 @@ import TodoItem from '../TodoItem/TodoItem';
 import { IItemsListProps } from './IItemsList.props';
 import styles from './ItemsList.module.scss';
 
-const ItemsList = ({ todos, handleDeleteTodo }: IItemsListProps) => {
+const ItemsList = ({ todos, handleDeleteTodo, handleUpdateTodo }: IItemsListProps) => {
     return (
         <section className={styles['items-list']}>
             <div className={styles['items-list__inner']}>
@@ -13,6 +13,7 @@ const ItemsList = ({ todos, handleDeleteTodo }: IItemsListProps) => {
                         text={todo.text}
                         isCompleted={todo.isCompleted}
                         handleDeleteTodo={handleDeleteTodo}
+                        handleUpdateTodo={handleUpdateTodo}
                     />
                 ))}
             </div>

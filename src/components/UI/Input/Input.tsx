@@ -4,7 +4,7 @@ import Close from '../../../assets/close.svg?react';
 import Button from "../Button/Button";
 import { Controller, FieldValues } from "react-hook-form";
 
-const Input = <T extends FieldValues>({ control, name }: IInputProps<T>) => {
+const Input = <T extends FieldValues>({ control, name, resetForm }: IInputProps<T>) => {
     return (
         <Controller
             control={control}
@@ -12,7 +12,7 @@ const Input = <T extends FieldValues>({ control, name }: IInputProps<T>) => {
             render={({ field }) => (
                 <label className={styles['label']}>
                     <input className={styles['input']} type="text" {...field} placeholder="What needs to be done?" />
-                    <Button className={styles['close']}>
+                    <Button type="button" className={styles['close']} onClick={resetForm}>
                         <Close />
                     </Button>
                 </label >

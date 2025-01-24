@@ -60,7 +60,12 @@
             }
         }
 
-        .btn-delete {}
+        .btn-delete {
+            &:hover>:first-child>path {
+                @include transition(fill, 200ms);
+                fill: variables.$grey-3;
+            }
+        }
     }
 
     &:hover {

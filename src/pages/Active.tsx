@@ -4,13 +4,12 @@ import { filterTodos } from "../helpers/filterTodos";
 import { IOutletContext } from "../interfaces/IOutletContext";
 
 const Active = () => {
-
-    const { todos, handleDeleteTodo } = useOutletContext<IOutletContext>();
+    const { todos, handleDeleteTodo, handleUpdateTodo } = useOutletContext<IOutletContext>();
     const filteredTodos = filterTodos({ type: 'active', todos })
 
     return (
         <>
-            <ItemsList todos={filteredTodos} handleDeleteTodo={handleDeleteTodo} />
+            <ItemsList todos={filteredTodos} handleDeleteTodo={handleDeleteTodo} handleUpdateTodo={handleUpdateTodo} />
         </>
     );
 }

@@ -13,7 +13,7 @@ export interface IForm {
 
 const Main = () => {
     const [state, dispatch] = useReducer(todosReducer, initialState);
-    console.log('re-render');
+
     useEffect(() => {
         dispatch({ type: 'GET' })
     }, [])
@@ -40,17 +40,39 @@ const Main = () => {
         }
     }
 
+    const handleUpdateTodo = ({ id, text, isCompleted }: { id: TId, text?: string, isCompleted?: boolean }) => {
+        console.log(id, text, isCompleted);
+
+        dispatch({
+            type: 'UPDATE', payload: {
+                id: id,
+                text: text,
+                isCompleted: isCompleted
+            }
+        })
+    }
+
+    const resetForm = () => {
+        reset()
+    }
+
     const onSubmit: SubmitHandler<IForm> = (data) => {
-        dispatch({ type: 'POST', payload: data })
+        console.log(data);
+
+        dispatch({
+            type: 'POST', payload: {
+                text: data.text
+            }
+        })
         reset()
     }
 
     return (
         <main className={styles['main']}>
             <form onSubmit={handleSubmit(onSubmit)}>
-                <Input control={control} name={'text'} />
+                <Input control={control} name={'text'} resetForm={resetForm} />
             </form>
-            <Outlet context={{ todos: state.todos, handleDeleteTodo }} />
+            <Outlet context={{ todos: state.todos, handleDeleteTodo, handleUpdateTodo }} />
             <Navbar todos={state.todos} handleClearComleted={handleClearComleted} />
         </main>
     );

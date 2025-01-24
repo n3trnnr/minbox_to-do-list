@@ -13,6 +13,7 @@ interface IAction {
     type: 'GET' | 'POST' | 'UPDATE' | 'DELETE' | 'CLEAR_COMPLETED';
     payload?: {
         text?: string,
+        isCompleted?: boolean
         id?: TId
     }
 }
@@ -26,6 +27,7 @@ export const todosReducer = (state: IInitialState, action: IAction): IInitialSta
                 todos: todos
             }
         }
+
         case 'POST': {
             if (action.payload && action.payload.text) {
                 const newTodo: ITodo = {
@@ -43,6 +45,45 @@ export const todosReducer = (state: IInitialState, action: IAction): IInitialSta
             }
             return state
         }
+
+        case 'UPDATE': {
+            if (action.payload && action.payload.id) {
+                const id = action.payload.id
+
+                const updatedTodo = state.todos.map((todo) => {
+                    if (todo.id === id) {
+                        return {
+                            ...todo,
+                            isCompleted: action.payload?.isCompleted ?? todo.isCompleted,
+                            text: action.payload?.text ?? todo.text
+                        }
+                    }
+                    return todo
+                })
+
+                const data = {
+                    ...state,
+                    todos: [...updatedTodo]
+                }
+                setState(data.todos)
+                return data
+            }
+            return state
+        }
+
+        case 'CLEAR_COMPLETED': {
+            const filteredTodos = state.todos.filter((todo) => {
+                return todo.isCompleted !== true
+            })
+
+            const data = {
+                ...state,
+                todos: [...filteredTodos]
+            }
+            setState(data.todos)
+            return data
+        }
+
         case 'DELETE': {
             if (action.payload && action.payload.id) {
                 const id = action.payload.id
@@ -59,18 +100,7 @@ export const todosReducer = (state: IInitialState, action: IAction): IInitialSta
             }
             return state
         }
-        case 'UPDATE': {
 
-        }
-        case 'CLEAR_COMPLETED': {
-            const filteredTodos = state.todos.filter((todo) => {
-                return todo.isCompleted !== true
-            })
-            return {
-                ...state,
-                todos: [...filteredTodos]
-            }
-        }
         default:
             return state;
     }
